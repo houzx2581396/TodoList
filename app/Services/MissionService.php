@@ -26,4 +26,34 @@ class MissionService
             $this->missionRepository->createMission($mission);
         }
     }
+
+    /**
+     * 取得全部待辦事項
+     *
+     * @return \App\Mission[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function getMissions()
+    {
+        return $this->missionRepository->getMissions();
+    }
+
+    /**
+     * 刪除待辦事項
+     *
+     * @param int $missionKey
+     */
+    public function deleteMission(int $missionKey)
+    {
+        $this->missionRepository->deleteMission($missionKey);
+    }
+
+    /**
+     *完成待辦事項
+     *
+     * @param int $missionKey
+     */
+    public function missionComplete(int $missionKey)
+    {
+        $this->missionRepository->missionComplete($missionKey);
+    }
 }
