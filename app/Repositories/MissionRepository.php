@@ -38,4 +38,38 @@ class MissionRepository
             'mission' => $missionText
         ]);
     }
+
+    /**
+     * 取得全部待辦事項
+     *
+     * @return Mission[]|\Illuminate\Database\Eloquent\Collection
+     */
+    public function getMissions()
+    {
+        return $this->mission->all();
+    }
+
+    /**
+     * 刪除待辦事項
+     *
+     * @param int $missionKey
+     */
+    public function deleteMission(int $missionKey)
+    {
+        $this->mission->destroy($missionKey);
+    }
+
+    /**
+     * 更新待辦事項狀態
+     *
+     * @param int $missionKey
+     */
+    public function missionComplete(int $missionKey)
+    {
+        $this->mission
+            ->find($missionKey)
+            ->update([
+                'status' => 'true'
+            ]);
+    }
 }
