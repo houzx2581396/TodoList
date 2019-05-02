@@ -21,7 +21,12 @@ class MissionController extends Controller
      */
     public function index()
     {
-        return view('mission');
+        $missions = $this->missionService->getMissions();
+
+        return view('mission')
+            ->with([
+                'missions' => $missions
+            ]);
     }
 
     /**
@@ -34,6 +39,33 @@ class MissionController extends Controller
     public function createMission(Request $request)
     {
         $this->missionService->createMission($request->mission);
+
+        return redirect('mission');
+    }
+
+    /**
+     * 刪除待辦事項
+     *
+     * @param int $missionKey
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function deleteMission(int $missionKey)
+    {
+        $this->missionService->deleteMission($missionKey);
+
+        return redirect('mission');
+    }
+
+    /**
+     * 完成代辦事項
+     *
+     * @param int $missionKey
+     *
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public  function missionComplete(int $missionKey){
+        $this->missionService->missionComplete(@$missionKey);
 
         return redirect('mission');
     }
