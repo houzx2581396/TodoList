@@ -16,7 +16,7 @@ class CreateMissionsTable extends Migration
         Schema::create('missions', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('mission')->comment('待辦事項');
-            $table->enum('status', ['true', 'false'])->comment('是否完成');
+            $table->enum('status', ['true', 'false'])->default('false')->comment('是否完成');
             $table->timestamps();
             $table->softDeletes();
         });
