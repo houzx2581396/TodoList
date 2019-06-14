@@ -60,7 +60,7 @@ class MissionRepository
     }
 
     /**
-     * 更新待辦事項狀態
+     * 完成待辦事項
      *
      * @param int $missionKey
      */
