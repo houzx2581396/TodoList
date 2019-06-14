@@ -20,8 +20,6 @@
                             </div>
                         </form>
 
-                        <hr>
-
                         @foreach($missions as $mission)
                             <div class="row form-group">
                                 <div class="col-sm-1" align="center">
