@@ -64,8 +64,9 @@ class MissionController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public  function missionComplete(int $missionKey){
-        $this->missionService->missionComplete(@$missionKey);
+    public function missionComplete(int $missionKey)
+    {
+        $this->missionService->missionComplete($missionKey);
 
         return redirect('mission');
     }
