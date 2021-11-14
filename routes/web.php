@@ -23,3 +23,4 @@ Route::get('mission', 'MissionController@index')->name('mission');
 Route::post('mission', 'MissionController@createMission');
 Route::put('mission/{missionKey}', 'MissionController@missionComplete')->name('missionComplete');
 Route::delete('mission/{missionKey}', 'MissionController@deleteMission')->name('missionDelete');
+Route::get('test', 'TestController@index');
